@@ -1,10 +1,11 @@
 $(document).ready(function(){
-
- $('.new2').hide();
+$('.new2').hide();
  $('.new3').hide();
  $('.error').hide();
   $('.error2').hide();
   $('.error3').hide();
+    $('.error4').hide();
+
 
 });
 function loc() {
@@ -12,56 +13,62 @@ function loc() {
     var x = $(".pickup").val();
 
     $(".drop option[value='"+x+"']").attr("disabled", "disabled").siblings().removeAttr("disabled");
-   
+     $('.error2').hide();
 }
 function droploc() {
     var x = $(".drop").val();
     $(".pickup option[value='"+x+"']").attr("disabled", "disabled").siblings().removeAttr("disabled");
+  $('.error3').hide();
    }
 
 function saman(){
 	var x=$(".pass").val();
+	$('.error4').hide();
 	if(x=='CedMicro'){
-		// $( ".new" ).prop( "disabled", true );
+		
 		$('.new').attr('disabled', 'disabled');
 		$(".new").val("laugage option is not avaible in CedMicro");
 		 $('.error').show();
 		 $('.error').html("laugage option is not avaible in CedMicro");
-		// alert("laugage option is not avaible for required taxi selection");
+		
 		
 	}
 	else{
 		$('.new').removeAttr('disabled');
 		$(".new").val(0); 
+		 $('.error').hide();
 	}
 }
 function final(){
 	var aana=$(".s1").val();
 	if(aana=="Current-location"){
-		// alert("Required....Please select your current location");
+	
          $('.error2').show();
 		 $('.error2').html("please choose your current location");
 		return;
 	}
+	
 	var jana=$(".s2").val();
 	if(jana=="Enter Drop for ride estimate"){
 
-		// alert("Required....Please select your drop location");
+		
 		 $('.error3').show();
 		 $('.error3').html("please choose your drop location location");
 		return;
 	}
+	
 	var laugag=$(".new").val();
 	console.log(typeof 'laugag');
 	console.log(laugag);
 	var cab=$(".pass").val();
 	console.log(cab);
 	if(cab==1){
-		// alert("Required....Please select your cab-type");
+		
 		 $('.error4').show();
 		 $('.error4').html("please choose your cab for journey");
 		return;
 	}
+	
 	if(aana==jana){
 		alert('pickup and drop point should not be same ');
 		return;
