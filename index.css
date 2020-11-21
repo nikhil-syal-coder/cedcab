@@ -1,0 +1,56 @@
+.info{
+    background-image: url("car3.jpeg");
+    padding: 0px;
+    /*  transform: rotateY(-10deg);*/
+	}
+.btn2{
+    width: 180px;
+	height: 45px;
+	border-radius: 30px;
+	background-color: rgba(218, 22, 74, 1);;
+	color: white;
+	border: 1px solid white;
+}
+.j1,p,span,h5{
+	color: white;
+}
+span{
+	border: 1px solid rgba(201, 219, 0, 1);
+	border-radius: 20px;
+	background-color: rgba(201, 219, 0, 1);
+	color: black;
+
+}
+#btn1{
+	background-color: rgba(201, 219, 0, 1);
+		color: black;
+		border: 1px solid rgba(201, 219, 0, 1);
+		border-radius: 8px;
+}
+#form{
+border: 1px solid white;
+background-color: white;
+}
+.abc{
+	color: black;
+}
+.abc2{
+	border-top: 1px solid black;
+}
+
+.abc3{
+		background-color: rgba(240, 239, 239, 1);
+		-webkit-appearance: none;
+}
+
+.sx{
+	background-color: white;
+}
+.messege{
+	color: white;
+	text-align: left;
+}
+
+.custom-select{
+background: rgba(240, 239, 239, 1);
+}
