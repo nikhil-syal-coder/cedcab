@@ -2,6 +2,9 @@ $(document).ready(function(){
 
  $('.new2').hide();
  $('.new3').hide();
+ $('.error').hide();
+  $('.error2').hide();
+  $('.error3').hide();
 
 });
 function loc() {
@@ -22,6 +25,8 @@ function saman(){
 		// $( ".new" ).prop( "disabled", true );
 		$('.new').attr('disabled', 'disabled');
 		$(".new").val("laugage option is not avaible in CedMicro");
+		 $('.error').show();
+		 $('.error').html("laugage option is not avaible in CedMicro");
 		// alert("laugage option is not avaible for required taxi selection");
 		
 	}
@@ -33,13 +38,17 @@ function saman(){
 function final(){
 	var aana=$(".s1").val();
 	if(aana=="Current-location"){
-		alert("Required....Please select your current location");
+		// alert("Required....Please select your current location");
+         $('.error2').show();
+		 $('.error2').html("please choose your current location");
 		return;
 	}
 	var jana=$(".s2").val();
 	if(jana=="Enter Drop for ride estimate"){
 
-		alert("Required....Please select your drop location");
+		// alert("Required....Please select your drop location");
+		 $('.error3').show();
+		 $('.error3').html("please choose your drop location location");
 		return;
 	}
 	var laugag=$(".new").val();
@@ -48,7 +57,9 @@ function final(){
 	var cab=$(".pass").val();
 	console.log(cab);
 	if(cab==1){
-		alert("Required....Please select your cab-type");
+		// alert("Required....Please select your cab-type");
+		 $('.error4').show();
+		 $('.error4').html("please choose your cab for journey");
 		return;
 	}
 	if(aana==jana){

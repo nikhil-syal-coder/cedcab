@@ -54,3 +54,7 @@ background-color: white;
 .custom-select{
 background: rgba(240, 239, 239, 1);
 }
+
+.error,.error2,.error3,.error4{
+	color: red;
+}
