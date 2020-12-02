@@ -14,6 +14,10 @@
 .j1,p,span,h5{
 	color: white;
 }
+.book{
+	text-align: center;
+	
+}
 span{
 	border: 1px solid rgba(201, 219, 0, 1);
 	border-radius: 20px;

@@ -4,10 +4,17 @@ $('.new2').hide();
  $('.error').hide();
   $('.error2').hide();
   $('.error3').hide();
-    $('.error4').hide();
+	$('.error4').hide();
+	$('.error5').hide();
+	$('.book').hide();
 
 
 });
+$(".book").click(function(){
+	alert("The paragraph was clicked.");
+  });
+
+	
 function loc() {
 	
     var x = $(".pickup").val();
@@ -79,7 +86,7 @@ function final(){
 	}
 
      $.ajax({
-    	url: "http://localhost/training/cab/index.php", 
+    	url: "http://localhost/training/cab_project/cab/ind.php", 
     	type:"POST",
     	 
     	data:{pickup:aana,drop:jana,laugage:laugag,cabname:cab },
@@ -98,7 +105,9 @@ function final(){
          	console.log(error);
         }
 
-    });
+	});
+	$('.book').show();
+	$('.fare').hide();
 }
 function onlynumber(button) { 
 	console.log(button.which);

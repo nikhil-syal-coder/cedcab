@@ -1,3 +1,13 @@
+<?php
+
+
+require_once('../class.php');
+require_once('../config.php');
+$obj= new DB();
+$obj5=new location();
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,14 +39,32 @@
           </button>
           <div class="collapse navbar-collapse" id="navbar_menu">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a href="#" class="nav-link ml-5 h5 mt-2">About Us</a>
+            <li class="nav-item">
+                <a href="../user.php" class="nav-link ml-5 h5 mt-2"><?php
+         session_start();
+
+         echo "Welcome -"
+        .$_SESSION['userdata']['username']."";
+
+
+
+?></a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link ml-5 h5 mt-2">Contact Us</a>
+                <a href="../user.php" class="nav-link ml-5 h5 mt-2">Dashboard</a>
               </li>
               <li class="nav-item">
-                <button class="btn ml-5 btn2 ">Sign Up</button>
+                <a href="../user.php?id=1" class="nav-link ml-5 h5 mt-2">Previous-Ride</a>
+              </li>
+              <li class="nav-item">
+                <a href="../user.php?id=4" class="nav-link ml-5 h5 mt-2">Accounts</a>
+                
+              </li>
+              <li class="nav-item">
+                <a href="../user.php?id=7" class="nav-link ml-5 h5 mt-2">Log-Out</a>
+              </li>
+              <li class="nav-item">
+               
               </li>
             </ul>
           </div>     
@@ -63,14 +91,20 @@
             </div>
 
             <select class="custom-select abc3 s1 pickup" id="inputGroupSelect01" onchange="loc()">
-            <option selected>Current-location</option>
-            <option value="Charbagh">Charbagh</option>
-            <option value="Indranagar">Indranagar</option>
-            <option value="BBD">BBD</option>
-            <option value="Barabanki">Barabanki</option>
-            <option value="Fazaabad">Fazaabad</option>
-            <option value="Basti">Basti</option>
-            <option value="Gorakhpur">Gorakhpur</option>
+            <option selected><?php if(isset($_SESSION['origin']))
+             { 
+               echo $_SESSION['origin'] ;
+             }
+             else{
+             echo " Enter Your Current Location";
+             }?></option>
+            <?php 
+              $obj5->pickup($obj->conn);
+
+           
+            
+            ?>
+        
           </select>
           </div>
          <p class="error2" ></p>
@@ -79,14 +113,17 @@
               <label class="input-group-text text_size" for="inputGroupSelect01">DROP</label>
             </div>
             <select class="custom-select abc3 s2 drop" id="inputGroupSelect01" onchange="droploc()">
-              <option selected>Enter Drop for ride estimate</option>
-            <option value="Charbagh" class="Charbagh">Charbagh</option>
-            <option value="Indranagar" class="Indranagar">Indranagar</option>
-            <option value="BBD" class="BBD">BBD</option>
-            <option value="Barabanki" class="Barabanki">Barabanki</option>
-            <option value="Fazaabad" class="Fazaabad" >Fazaabad</option>
-            <option value="Basti" class="Basti">Basti</option>
-            <option value="Gorakhpur" class="Gorakhpur">Gorakhpur</option>
+              <option selected><?php if(isset($_SESSION['drop']))
+             { 
+               echo $_SESSION['drop'] ;
+             }
+             else{
+             echo " Enter Your Drop Location";
+             }?></option>
+              <?php 
+              $obj5->pickup($obj->conn);
+              ?>
+          
             </select>
           </div>
           <p class="error3" ></p>
@@ -95,27 +132,46 @@
               <label class="input-group-text text_size" for="inputGroupSelect01">CAB TYPE</label>
             </div>
             <select class="custom-select abc3 pass" id="inputGroupSelect01" onchange="saman()">
-              <option selected value="1">Select-Cab-Type</option>
+              <option selected value="1"><?php if(isset($_SESSION['cabname']))
+             { 
+               echo $_SESSION['cabname'] ;
+             }
+             else{
+             echo "Select Your Cab Type";
+             }?></option>
               <option value="CedMicro">CedMicro</option>
               <option value="CedMini">CedMini</option>
               <option value="Cedsuv">Cedsuv</option>
               <option value="Cedroyal">Cedroyal</option>
             </select>
           </div>
- <p class="error4" ></p>
+          <p class="error4" ></p>
           <div class="input-group mb-2">
             <div class="input-group-prepend">
               <span class="input-group-text text_size" id="basic-addon1"  >Luggage</span>
             </div>
-            <input type="text" class="form-control abc3 new" placeholder="Enter Weight In KG" aria-label="Username" onkeypress="return onlynumber(event)" aria-describedby="basic-addon1">
+            <input type="text" class="form-control abc3 new" placeholder="Enter Weight In KG" aria-label="Username" onkeypress="return onlynumber(event)" aria-describedby="basic-addon1" value="<?php if(isset($_SESSION['laugage']))
+             { 
+               echo $_SESSION['laugage'] ;
+             }
+             else{
+             echo "Laugage";
+             }?>">
 
           </div>
          <p class="error" ></p>
           <div class="input-group mb-2">
 
             <div class="input-group-prepend"></div>
-            <input type="button" class="form-control" id="btn1" onclick="final()" value="Calculate-Fare" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="button" class="form-control fare" id="btn1" onclick="final()" value="Calculate-Fare" aria-label="Username" aria-describedby="basic-addon1">
           </div>
+
+          <div class="input-group mb-2">
+          <div class="input-group-prepend"></div>
+          <a class="form-control book" id="btn1" href="../book.php"  aria-label="Username" aria-describedby="basic-addon1">Book-Now</a>
+          </div>
+          
+
          <div class="input-group mb-2">
             
             <input type="text" class="form-control abc3 new2" aria-label="Username" aria-describedby="basic-addon1">

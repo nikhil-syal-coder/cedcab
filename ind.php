@@ -1,7 +1,14 @@
 <?php 
+ session_start();
+ 
 
-// print_r($_POST['pickup']);
-$cabby = array("Charbagh"=>0, "Indranagar"=>10, "BBD"=>30,"Barabanki"=>60, "Fazaabad"=>100, "Basti"=>150,"Gorakhpur"=>210);
+
+require_once('../class.php');
+require_once('../config.php');
+$obj3= new DB();
+$obj5=new location();
+$cabby=$obj5->array($obj3->conn);
+
 $extra=0;
 $origin=$_POST['pickup'];
 $drop=$_POST['drop'];
@@ -11,8 +18,15 @@ $drop2=$cabby[$drop];
 $final =($origin2)-($drop2);
 $final=abs($final);
 echo $final;
+$_SESSION['origin']=$origin;
+
+$_SESSION['drop']=$drop;
+$_SESSION['laugage']=$laugage;
+$_SESSION['final']=$final;
+$_SESSION['cabname']=$_POST['cabname'];
+
 if($laugage<10 && $laugage>0){
-              $extra=50;
+  $extra=50;
 }
 
 elseif ($laugage>=10 && $laugage<=20) {
@@ -129,6 +143,11 @@ elseif ($laugage>=20) {
      	 	echo $fare;
      	 }
      	
-     } 
-
+	 } 
+	 $_SESSION['fare']=$fare;
+	
+	 $obj= new DB();
+	 $obj2=new User();
+	 $obj2->ride($obj->conn);
+   
 ?>
