@@ -146,8 +146,6 @@ elseif ($laugage>=20) {
 	 } 
 	 $_SESSION['fare']=$fare;
 	
-	 $obj= new DB();
-	 $obj2=new User();
-	 $obj2->ride($obj->conn);
+
    
 ?>
