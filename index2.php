@@ -40,7 +40,7 @@ $obj5=new location();
           <div class="collapse navbar-collapse" id="navbar_menu">
             <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a href="../user.php" class="nav-link ml-5 h5 mt-2"><?php
+                <a href="../user.php?id=8" class="nav-link ml-5 h5 mt-2"><?php
          session_start();
 
          echo "Welcome -"
@@ -53,13 +53,7 @@ $obj5=new location();
               <li class="nav-item">
                 <a href="../user.php?id=8" class="nav-link ml-5 h5 mt-2">Dashboard</a>
               </li>
-              <li class="nav-item">
-                <a href="../user.php?id=1" class="nav-link ml-5 h5 mt-2">Previous-Ride</a>
-              </li>
-              <li class="nav-item">
-                <a href="../user.php?id=4" class="nav-link ml-5 h5 mt-2">Accounts</a>
-                
-              </li>
+              
               <li class="nav-item">
                 <a href="../user.php?id=7" class="nav-link ml-5 h5 mt-2">Log-Out</a>
               </li>
@@ -112,7 +106,7 @@ $obj5=new location();
             <div class="input-group-prepend">
               <label class="input-group-text text_size" for="inputGroupSelect01">DROP</label>
             </div>
-            <select class="custom-select abc3 s2 drop" id="inputGroupSelect01" onchange="droploc()">
+            <select class="custom-select abc3 s2 drop" id="inputGroupSelect01" onchange="droploc()" >
               <option selected><?php if(isset($_SESSION['drop']))
              { 
                echo $_SESSION['drop'] ;
@@ -207,7 +201,7 @@ $obj5=new location();
 				
                        <a href="#" class="ml-3 " >FEATURES</a>
                         <a href="#" class="ml-3">REVIEW</a>
-                        <a href="#" class="ml-3" >SIGN UP</a>
+                        <a href="#" class="ml-3" >Information</a>
                  
 
 			</nav>

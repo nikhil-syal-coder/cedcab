@@ -1,3 +1,4 @@
+var count=0;
 $(document).ready(function(){
 $('.new2').hide();
  $('.new3').hide();
@@ -20,12 +21,39 @@ function loc() {
     var x = $(".pickup").val();
 
     $(".drop option[value='"+x+"']").attr("disabled", "disabled").siblings().removeAttr("disabled");
-     $('.error2').hide();
+	 $('.error2').hide();
+	 count++;
+	 console.log(count);
+	 if(count>2){
+	 console.log('entered');
+		$('.fare').show(); 
+	 }
+
+	
 }
+
 function droploc() {
     var x = $(".drop").val();
     $(".pickup option[value='"+x+"']").attr("disabled", "disabled").siblings().removeAttr("disabled");
   $('.error3').hide();
+  $('.book').hide();
+  $('.book').hide();
+		$('.fare').show();
+		count++;
+		console.log(count);
+		if(count>2){
+		console.log('entered');
+		   $('.fare').show(); 
+		}
+   
+   }
+   function saman2(){
+	count++;
+	console.log(count);
+	if(count>2){
+	console.log('entered');
+	   $('.fare').show(); 
+	} 
    }
 
 function saman(){
@@ -45,6 +73,13 @@ function saman(){
 		$(".new").val(0); 
 		 $('.error').hide();
 	}
+	count++;
+	console.log(count);
+	if(count>2){
+	console.log('entered');
+	   $('.fare').show(); 
+	}
+
 }
 function final(){
 	var aana=$(".s1").val();
@@ -86,7 +121,7 @@ function final(){
 	}
 
      $.ajax({
-    	url: "http://localhost/training/cab_project/cab/ind.php", 
+    	url: "/training/cab_project/cab/ind.php", 
     	type:"POST",
     	 
     	data:{pickup:aana,drop:jana,laugage:laugag,cabname:cab },
@@ -110,9 +145,17 @@ function final(){
 	$('.fare').hide();
 }
 function onlynumber(button) { 
+	count++;
+		console.log(count);
+		if(count>2){
+		console.log('entered');
+		   $('.fare').show(); 
+		}
 	console.log(button.which);
         var code = button.which;
         if (code > 31 && (code < 48 || code > 57)) 
             return false; 
-        return true; 
+		return true; 
+		
+		
     } 
